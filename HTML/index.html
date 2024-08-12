@@ -5,48 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     <link rel="stylesheet" href="/Assets/CSS/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav class="head">
             <h1>HomeShop</h1>
-            <a href="#">Trending</a>
-            <a href="#">Categories</a>
-            <a href="#">Groceries</a>
-            <a href="#">Offers</a>
-            <a href="paymentform.html">Payment Form</a>
+            <ol>
+                <li><a href="#">Trending</a></li>
+                <li> <a href="#">Categories</a></li>
+                <li> <a href="#">Offers</a></li>
+                <li> <a href="#">Groceries</a></li>
+                <li> <a href="#">Payment Form</a></li>
+
+            </ol>
         </nav>
     </header>
     <hr>
-    <p class="hd">Videos </p>
-    <div class="vid">
-        <video class="vids" src="/Assets/Videos/7565977-hd_2048_1080_25fps.mp4" width=30% autoplay loop controls
-            title="Random">
+    <div style="display: flex;justify-content: center;">
+        <p class="hd">Videos </p>
+    </div>
+    <div style="display: flex;justify-content: center;"" class=" vid3">
+        <video class="vids" src="/Assets/Videos/7565977-hd_2048_1080_25fps.mp4" width=30% loop controls title="Random">
         </video>
-        <video class="vids" src="/Assets/Videos/7565977-hd_2048_1080_25fps.mp4" width=30% autoplay loop controls
-            title="Random">
+        <video class="vids" src="/Assets/Videos/7565977-hd_2048_1080_25fps.mp4" width=30% loop controls title="Random">
         </video>
-        <video class="vids" src="/Assets/Videos/7565977-hd_2048_1080_25fps.mp4" width=30% autoplay loop controls
-            title="Random">
+        <video class="vids" src="/Assets/Videos/7565977-hd_2048_1080_25fps.mp4" width=30% loop controls title="Random">
         </video>
     </div>
     <hr>
-    <p class="hd">VIDEOS</p>
-    <div class="row2">
-        <video class="dual" src="/Assets/Videos/7565438-hd_1080_1920_25fps.mp4" autoplay controls loop title="DUAL"
+    <div style="display: flex;justify-content: center;">
+        <p class="hd">VIDEOS</p>
+    </div>
+    <div class="vid2">
+        <video class="vids" src="/Assets/Videos/7565438-hd_1080_1920_25fps.mp4" controls loop title="DUAL"
             width=20%></video>
-        <video class="dual" src="/Assets/Videos/7565438-hd_1080_1920_25fps.mp4" autoplay controls loop title="DUAL"
-            width=20%></video>
-        <video class="dual" src="/Assets/Videos/7565438-hd_1080_1920_25fps.mp4" autoplay controls loop title="DUAL"
-            width=20%></video>
-        <video class="dual" src="/Assets/Videos/7565438-hd_1080_1920_25fps.mp4" autoplay controls loop title="DUAL"
+        <video class="vids" src="/Assets/Videos/7565438-hd_1080_1920_25fps.mp4" controls loop title="DUAL"
             width=20%></video>
     </div>
     <section>
         <hr>
-        <h4>Our Founder</h4>
-        <img src="/Assets/images/images.jpeg" alt="Elon Musk" width="45%">
+        <div style="display: flex;justify-content: center;">
+            <h4 class="hd">Our Founder</h4>
+        </div>
+        <div class="image">
+            <img src="/Assets/images/img.jpg" alt="Elon Musk" width="45%">
+        </div>
         <h6>Elon Musk</h6>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, a perspiciatis quia qui assumenda pariatur
             consequuntur accusamus quis corrupti veniam nemo esse nobis ea corporis itaque. Ut tempora temporibus eum
@@ -56,10 +65,12 @@
         <hr>
     </section>
     <nav class="foot">
-        <a href="#">FAQs</a>
-        <a href="#">Privacy And Policies</a>
-        <a href="#">Help</a>
-        <a href="">Customer Service</a>
+        <ol>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy And Policies</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">About</a></li>
+        </ol>
     </nav>
     <footer>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iste est, veritatis, perspiciatis
         molestiae harum fugit neque impedit reiciendis fugiat facere quae magni doloribus praesentium. Ducimus
@@ -76,6 +87,7 @@
         sunt aut dolore nulla ab optio ut! Accusantium iure, ad omnis cupiditate ea natus perspiciatis excepturi quaerat
         earum sint provident consectetur. Veritatis eaque repudiandae beatae sapiente nostrum exercitationem impedit,
         temporibus id doloremque delectus?</footer>
+
 </body>
 
 </html>
