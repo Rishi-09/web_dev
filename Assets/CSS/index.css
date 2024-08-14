@@ -15,7 +15,6 @@ li {
     list-style-type: none;
 }
 
-
 span{
     display: flex;
     justify-self: center;
@@ -117,6 +116,7 @@ footer {
 
 ol {
     display: flex;
+    justify-content: center;
 }
 
 .founder {

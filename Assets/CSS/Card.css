@@ -1,14 +1,15 @@
 body { display: flex;
-    background-color: #bebaba;
+    background-color: #424141;
     justify-content: center;
     box-sizing: content-box;
 }
+
 .full { 
     padding: 25px;
     margin:25px;
     border-radius: 40px;
     border: 2px solid #cfcdcd;  
-    background-color: white;
+    background-color: rgb(37, 37, 37);
     width:30%;
 }
 .img{
@@ -53,16 +54,16 @@ h3{
 }
 .rdm { 
     font-size: 1.2em;
-    color: #4b98cc;
+    color: #09619c;
     margin: 20px;
     padding: 15px 40px 15px 40px;
-    border: 3px solid white;
+    border: none;
     border-radius: 40px;
     position:relative;
     top:20px;
     text-decoration: none;
     font-size: 2em;
-    background-color: #b7c6ce;
+    background-color: #7994a3c2;
 }
 .ctr{ display: flex;
      font-weight: 1.3em;
@@ -71,4 +72,41 @@ h3{
 .rdm:hover{
     background-color: #83aab1;
     color: #39769e;
+}
+@media only screen and (max-width:1170px) {
+ .button{
+        font-size: 1em;
+        margin: 10px;
+        padding: 7px 20px 7px 20px;
+ }   
+}
+@media only screen and (max-width:740px) {
+    .button{
+           font-size: 0.7em;
+           margin: 7px;
+           padding: 3px 10px 3px 10px;
+    }   
+}
+@media only screen and (max-width:1170px) {
+    .rdm{
+           font-size: 1em;
+           margin: 10px;
+           padding: 7px 20px 7px 20px;
+    }   
+}
+@media only screen and (max-width:1170px) {
+    p{
+           font-size: 1em;
+         
+    }   
+}
+@media only screen and (max-width:1170px) {
+    .full{
+           width: 30%;
+    }   
+}
+@media only screen and (max-width:740px) {
+    .full{
+           width: 30%;
+    }  
 }
