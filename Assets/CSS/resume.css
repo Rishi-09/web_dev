@@ -1,0 +1,12 @@
+body{
+    background-color:linear-gradient(90deg,#dd9191,#d44e4e);
+}
+.mainbox{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile_photo{
+    border: 4px solid #29e4ac;
+    border-radius: 25px;
+}
