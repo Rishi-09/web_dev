@@ -221,3 +221,27 @@ footer {
 .lang {
     text-align: center;
 }
+
+.scanner {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.scanner-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.scanner-btn:hover {
+    background-color: #0056b3;
+}
+
+#docPreview {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
