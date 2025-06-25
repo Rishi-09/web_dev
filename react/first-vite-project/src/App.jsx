@@ -1,46 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './components/Card'
+import axios from 'axios'
 
-function App() {  
-  // Sample data for the cards
-  const data = [{
-    "name": "Narendra Modi",
-    "age": 73,
-    "city": "Vadnagar",
-    "profile_photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Narendra_Modi_2019.jpg/800px-Narendra_Modi_2019.jpg"
-  },
-  {
-    "name": "Mahatma Gandhi",
-    "age": 78,
-    "city": "Porbandar",
-    "profile_photo_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Mahatma_Gandhi_1942.jpg"
-  },
-  {
-    "name": "Priyanka Chopra",
-    "age": 43,
-    "city": "Jamshedpur",
-    "profile_photo_url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Priyanka_Chopra_in_2019.jpg"
-  },
-  {
-    "name": "Virat Kohli",
-    "age": 34,
-    "city": "Delhi",
-    "profile_photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Virat_Kohli_2018.jpg"
-  },
-  {
-    "name": "Amitabh Bachchan",
-    "age": 81,
-    "city": "Allahabad",
-    "profile_photo_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Amitabh_Bachchan_in_2017.jpg"
+
+const App = () => {  
+  const [Data, setData] = useState([])
+  const getData = async () => {
+    const response = await axios.get('https://picsum.photos/v2/list?page=2&limit=10');
+    const data = response.data;
+    setData(data);
+    
   }
-  ]
-
+  
   return (
-    <div className='m-0 p-5 bg-zinc-800  display-flex w-full h-screen text-white  color-white text-2xl '> 
+    <div className='m-0 p-5 bg-zinc-800  display-flex w-full h-screen text-white  color-white text-2xl flex-row items-center justify-center'> 
+
+    <button onClick={getData} className='w-48 h-24 bg-blue-400 active:scale-95 hover:scale-105 rounded-2xl transition-transform active:bg-blue-500 font-bold text-white border-amber-400  ' >Fill cards</button>
       <div className='flex  flex-wrap justify-evenly items-center'>
-        {data.map(function(elem){
-          return ( <Card Name={elem.name} age = {elem.age} city={elem.city} image={elem.profile_photo_url} />)
-        })}
+       {Data.map((elem)=>{
+        return (
+          <Card 
+            author={elem.author}
+            url={elem.download_url}
+            id={elem.id}
+            key={elem.id}
+          />
+        )
+       })}
       </div>
     </div>
   )
