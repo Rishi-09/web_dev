@@ -1,33 +1,27 @@
-import React, { useState } from 'react'
-import Card from './components/Card'
-import axios from 'axios'
+import React from 'react'
+
+import Header from './components/Header'
+import { Route, Routes } from 'react-router-dom'
+// import Home from './pages/Home'
+import Page1 from './pages/Page1'
+import Page2 from './pages/Page2'
+import Home from './pages/Home'
+
 
 
 const App = () => {  
-  const [Data, setData] = useState([])
-  const getData = async () => {
-    const response = await axios.get('https://picsum.photos/v2/list?page=2&limit=10');
-    const data = response.data;
-    setData(data);
-    
-  }
+  
   
   return (
-    <div className='m-0 p-5 bg-zinc-800   w-full h-screen text-white  color-white text-2xl align-middle flex flex-col items-center justify-center'> 
-
-      <button onClick={getData} className='w-48 h-24 bg-blue-400 active:scale-95 hover:scale-105 rounded-2xl transition-transform active:bg-blue-500 font-bold text-white border-amber-400  ' >Fill cards</button>
-        <div className='flex  flex-wrap justify-evenly items-center'>
-          {Data.map((elem)=>{
-            return (
-              <Card 
-                author={elem.author}
-                url={elem.download_url}
-                id={elem.id}
-                key={elem.id}
-              />
-            )
-        })}
-        </div>
+    
+    <div className='m-0 bg-zinc-800   w-full h-screen text-white  color-white text-2xl align-middle flex flex-col items-center '> 
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} /> 
+        <Route path='/page1' element={<Page1 />} />
+        <Route path='/page2' element={<Page2 />} />                 
+      </Routes>
+      
     </div>
   )
 }
