@@ -27,9 +27,9 @@ function createCard(thumnailUrl,title,channelName,views,monthsAgo,duration) {
    }
 
    let html =` <div class="card">
-                <div>
-                <img src=${thumnailUrl} alt="" class="image" >
-                <p>${duration}</p> 
+                <div class="thumbnail" >
+                    <img src=${thumnailUrl} alt="" class="image" >
+                    <p class='duration' >${duration}</p> 
                 </div>
                 <div class="details">
                     <p class="title" >${title}</p>
