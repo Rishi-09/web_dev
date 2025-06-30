@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #121111;
+        color: antiquewhite;
+        font-family: monospace;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .Message {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        color: white;
+      }
+
+      .button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out;
+      }
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      button:hover {
+        transform: scale(1.1);
+      }
+
+      button:focus {
+        transform: scale(1);
+        transition: transform 0.1s ease-in-out;
+      }
+
+      button:active {
+        background-color: #3e8e41;
+        transform: scale(1);
+        transition: transform 0.05s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button">i'm Human</button>
+    <p class="Message" id="firstMsg"></p>
+    <p class="Message" id="secondMsg"></p>
+    <p class="Message" id="thirdMsg"></p>
+    <p class="Message" id="fourthMsg"></p>
+    <p class="Message" id="fifthMsg"></p>
+    <p class="Message" id="finalMsg"></p>
+    <script src="/javaScript/hecker.js"></script>
+  </body>
+</html>
