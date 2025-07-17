@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+.msg,.draw-msg {
+    color :wheat;
+    font-size: 2em;
+    font-weight: 2em;
+}
+
+body{
+    background-image: url(image.avif) ;
+    background-size: 200%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 10px;
+    padding: 10px;
+    color: wheat;
+}
+
+.parent {
+    height: 70vh;
+    width: 70vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border:1px solid white;
+    border-radius: 20px;
+}
+
+.btn {
+    background:linear-gradient(to bottom right,#414833,#364958);
+    border: none;
+    border-radius: 30px;
+    height: 18vmin;
+    width: 18vmin;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out;
+    font-size: 4em;
+    font-weight: 4em;
+    color: white    ;
+}
+.btn:hover {
+    transition-timing-function: linear;
+    transform:scale(1.1);
+    transition: transform 0.2s;
+}
+
+#reset {
+    background-color: black;
+    margin:1rem;
+    padding: 1rem;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid white;
+}
+#reset:hover {
+    background-color:rgb(48, 44, 44);
+    transform:scale(1.2);
+    transition: transform 0.2s;
+}   
+
+.newGame {
+    background-color: black;
+    margin:1rem;
+    padding: 1rem;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid white; 
+}
+
+.hide{
+    display: none; 
+}
+
+.newGame:hover {
+    background-color:rgb(48, 44, 44);
+    transform:scale(1.2);
+    transition: transform 0.2s;
+}   
