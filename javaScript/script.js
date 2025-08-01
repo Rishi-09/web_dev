@@ -15,8 +15,6 @@ btn.addEventListener("click",(e)=>{
     input.value="";
 });
 
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("delete")) {
-    e.target.parentElement.remove();
- }
-});
+list.addEventListener("click",function(){
+  console.log("button clicked");
+})
