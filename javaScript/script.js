@@ -1,7 +1,9 @@
 const btn = document.body.querySelector(".btn");
 const input = document.body.querySelector("input");
 const list = document.body.querySelector(".list");
-
+const body = document.querySelector("body");
+body.style.backgroundColor="black";
+body.style.color="white";
 btn.addEventListener("click",(e)=>{
     e.preventDefault();
     let li = document.createElement("li");
@@ -15,6 +17,8 @@ btn.addEventListener("click",(e)=>{
     input.value="";
 });
 
-list.addEventListener("click",function(){
-  console.log("button clicked");
+list.addEventListener("click",function(event){
+    if (event.target.nodeName == "BUTTON"){
+      event.target.parentElement.remove();
+    }
 })
