@@ -7,6 +7,9 @@
   </head>
   <body>
     <h1 style="text-align: center">Chat Cards</h1>
+    <form action="/chats/new" method="GET" >
+      <button style="padding: 5px; margin: 10px; border-radius: 10px; background-color: antiquewhite; color: black;" >New Chat</button>
+    </form>
     <div
       class="cards"
       style="
@@ -21,10 +24,11 @@
       <div
         class="chat"
         style="
+        
           border: 2px solid rgba(255, 255, 255, 0.3);
           border-radius: 12px;
           width: 350px;
-          height: 500px;
+          height: 200px;
           background-color: #435dcf;
           backdrop-filter: blur(12px);
           margin: 10px;
@@ -33,9 +37,10 @@
       >
         <p><%=chat.from%>: <%=chat.msg%></p>
         <p>to :<%=chat.to%></p>
-        <p class="time" style="position: relative; bottom: -380px">
-          <%=chat.created_at%>
-        </p>
+        <p><%=chat.created_at.toString().split(" ")[4]%></p>
+        <p><%=chat.created_at.toString().split(" ").slice(0,4).join(' ')%></p>
+        <form action="/chats/<%=chat._id%>/edit" method="GET" > <button>Edit</button> </form>
+        <form action="/chats/<%=chat._id%>?_method=DELETE" method="POST" > <button>Delete</button> </form>
       </div>
       <% } %>
     </div>
