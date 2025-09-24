@@ -9,6 +9,7 @@ app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}));
 app.use(methodoverride("_method"));
+const ExpressError = require("./ExpressError");
 
 main().then(()=>console.log("connection Successfull"))
 .catch(err=> console.log(err));
@@ -28,7 +29,6 @@ app.get("/chats",async (req,res)=>{
 })
 
 app.get("/chats/new",(req,res)=>{
-
     res.render("newChatForm.ejs")
 })
 
@@ -56,6 +56,18 @@ app.get("/chats/:id/edit",async (req,res)=>{
     res.render("editForm.ejs",{ oldChat });
 })
 
+
+//Show route
+app.get("/chats/:id",async (req,res,next)=>{
+    let { id } = req.params;
+    let chat = await Chat.findById(id);
+    if(!chat){
+        next( new ExpressError(404,"Chat not found"));
+    }
+    res.render("editForm",{ chat });
+})
+
+
 app.put("/chats/:id",async (req,res)=>{
     let { id } = req.params;
     let { newMsg } = req.body;
@@ -67,6 +79,11 @@ app.delete("/chats/:id", async (req,res)=>{
     let deletedChat = await Chat.findByIdAndDelete(id);
     console.log(deletedChat);
     res.redirect("/chats");
+})
+
+app.use((err,req,res,next)=>{
+    let { status = 500, message="Some Error Occured"} = err;
+    res.status(status).send(message);
 })
 app.listen(8080,()=>{
     console.log("http://localhost:8080");
