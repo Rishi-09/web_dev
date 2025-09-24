@@ -1,7 +1,7 @@
 const e = require("express");
 const express = require("express");
 const app = express();
-
+const ExpressError = require("../middlewares/expresserror");
 
 app.use((req,res,next)=>{
     console.log("hii i 1st middleware");
@@ -19,7 +19,7 @@ const checkToken = (req,res,next)=>{
     if(token==="giveaccess"){
         next();
     }
-    throw new Error("ACCESS DENIED!");
+    throw new ExpressError(401,"NEW ACCESS DENIED!");
 };
 
 
@@ -41,9 +41,14 @@ app.use((err,req,res,next)=>{
     console.log("_________ERROR_________");
     next(err);
 })
+
+app.get("/admin",(req,res)=>{
+    throw new ExpressError(403,"Access to admin is Forbidden");
+})
+
 app.use((err,req,res,next)=>{
-    console.log("_________ERROR2_________");
-    next(err);
+    let {status =500 ,message} = err;
+    res.status(status).send(err);
 })
 app.use((req,res)=>{
     res.status(404).send("page not found"); 
