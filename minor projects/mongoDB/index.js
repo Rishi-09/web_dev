@@ -22,22 +22,16 @@ async function main() {
 app.get("/",(req,res)=>{
     res.send("yyaaannnn!");
 })
-app.get("/chats",async (req,res,next)=>{
-    try{
+app.get("/chats",wrapAsync(async (req,res,next)=>{
         const chats = await Chat.find();
     res.render("chats.ejs", { chats })
-    }catch(err){
-        next(err);
-    }
-    
-})
+}));
 
 app.get("/chats/new",(req,res)=>{
     res.render("newChatForm.ejs")
 })
 
-app.post("/chats",async (req,res,next)=>{
-    try{
+app.post("/chats",wrapAsync(async (req,res,next)=>{
         let { from,to,msg } = req.body;
         let newChat = new Chat({
             from:from,
@@ -47,56 +41,59 @@ app.post("/chats",async (req,res,next)=>{
         });
         await newChat.save();
         res.redirect("/chats");
-    }catch(err){
-        next(err);
-    }
-})
+}));
 
-app.get("/chats/:id/edit",async (req,res,next)=>{
-    try{
-        let { id } = req.params;
-    
-    let oldChat = await Chat.findById(id);
-    
-    res.render("editForm.ejs",{ oldChat });
-    }catch(err){
-        next(err); 
-    }
-})
+app.get("/chats/:id/edit",wrapAsync(async (req,res,next)=>{
+    let { id } = req.params;
+    let oldchat = await Chat.findById(id);
+    res.render("editForm.ejs",{ oldchat });
+   
+}));
 
+
+function wrapAsync(fn){
+    return function(req,res,next){
+        fn(req,res,next).catch((err)=>next(err));    
+    }
+}
 
 //Show route
-app.get("/chats/:id",async (req,res,next)=>{
-    try{
-        let { id } = req.params;
-    let chat = await Chat.findById(id);
+app.get("/chats/:id",wrapAsync(async (req,res,next)=>{
+    let { id } = req.params;
+    oldchat = await Chat.findById(id);
     if(!chat){
         next( new ExpressError(404,"Chat not found"));
     }
-    res.render("editForm",{ chat });
-    }catch(err){
-        next(err)
-    }
-})
+    res.render("editForm",{ oldchat });
+}));
 
 
-app.put("/chats/:id",async (req,res,next)=>{
-    try{
-        let { id } = req.params;
+app.put("/chats/:id",wrapAsync(async (req,res,next)=>{
+    let { id } = req.params;
     let { newMsg } = req.body;
     let updatedChat = await Chat.findByIdAndUpdate(id,{msg:newMsg},{new:true});
     res.redirect("/chats");
-    }catch(err) {next(err)};
-})
-app.delete("/chats/:id", async (req,res,next)=>{
-    try{
+}));
+app.delete("/chats/:id", wrapAsync(async (req,res,next)=>{
         let { id } = req.params;
     let deletedChat = await Chat.findByIdAndDelete(id);
     console.log(deletedChat);
     res.redirect("/chats");
-    }catch(err){
-        next(err);
+    
+}));
+
+const handleValidationErr = (err) =>{
+    console.log("This was a validation error! \n Please fill correct details.");
+    console.dir(err.message);
+    return err;
+}
+
+app.use((err,req,res,next)=>{
+    console.log(err.name);
+    if(err.name === "ValidationError"){
+        err = handleValidationErr(err);
     }
+    next(err);
 })
 
 app.use((err,req,res,next)=>{
