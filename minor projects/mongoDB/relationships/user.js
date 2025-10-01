@@ -30,7 +30,7 @@ const addUser = async () => {
       },
       { 
         location:"787 njdas",
-        city:"Palakpur"
+        city:"Palakpur"enejhvhjejhe
       },
     ],
   });
