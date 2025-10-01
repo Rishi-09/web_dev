@@ -29,7 +29,7 @@ const addUser = async () => {
         city: "Jalandhar",
       },
       { 
-        location:"787 njdasj",
+        location:"787 njdas",
         city:"Palakpur"
       },
     ],
