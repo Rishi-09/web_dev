@@ -8,27 +8,38 @@ let usrSeq = [];
 let started = false;
 let level = 0;
 
+do {
+  if(!started){
+    for(box of boxes){
+      box.disabled=true;
+    }
+  }
+} while (0);
 
 startBtn.addEventListener("click", function () {
   if (started == false) {
     console.log("started");
   }
+  setTimeout(()=>{
+        startBtn.innerText="";
+      },100);
   started = true;
+  for(box of boxes){
+      box.disabled=false;
+    }
   startBtn.disabled = true;
-
   levelUP();
 });
-
 
 function checkAns(idx){
      if(gameSeq[idx]===usrSeq[idx]){
         if(usrSeq.length==gameSeq.length){
             setTimeout(levelUP(),1000);
         }
-    
    }
     else{
         h3.innerHTML = `Game Over! your score was <b>${level}</b> </br>Start again , GO Farrr.....`;
+        startBtn.innerText = "Re-Start";
         reset();
     }
 }
@@ -56,9 +67,11 @@ function levelUP() {
   usrSeq = [];
 }
 
-for(box of boxes){
+
+  for(box of boxes){
     box.addEventListener("click",btnPress);
 }
+
 
 function reset(){
     started = false;

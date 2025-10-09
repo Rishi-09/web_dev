@@ -43,9 +43,7 @@ h3{
     justify-content: center;
     align-content: center;
     border-radius: 50px;
-    border: 1px solid white;
-    
-    
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .box{
@@ -99,7 +97,11 @@ h3{
     margin: 30px 10px;
     background: transparent;
     backdrop-filter: blur(10px);
-    transition: trasnform 0.2s ease;
+    transition: transform ease 0.2s;
+}
+.startBtn:hover{
+    transform: scale(1.1);
+    color: black;
 }
 .startBtn:active{
     transform: scale(0.95);
