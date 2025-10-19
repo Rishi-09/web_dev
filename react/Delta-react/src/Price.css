@@ -1,0 +1,11 @@
+.price{
+    background-color: aqua;
+    color: black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative  ;
+    bottom: 0;
+    padding: 1.5rem;
+    font-weight: 500;
+}
