@@ -1,6 +1,12 @@
 .Product{
-    border: 2px solid rgb(13, 13, 13);
+    border: 2px solid rgb(220, 212, 212);
     padding: 10px;
     border-radius: 12px;
     margin: 10px;
+    width: 15vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    object-fit: cover;
 }
